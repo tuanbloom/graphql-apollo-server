@@ -1,3 +1,1 @@
-﻿# Node Common
-
-MakerX common types and only the most basic essential code - no dependencies!
+﻿# graphql-apollo-server
