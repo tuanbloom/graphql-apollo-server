@@ -2,18 +2,19 @@ import { GraphQLFormattedError } from 'graphql'
 import { ApolloServerPlugin, GraphQLRequestContextWillSendResponse, GraphQLRequestListener } from '@apollo/server'
 import { GraphQLRequestContextWillSendSubsequentPayload } from '@apollo/server/dist/esm/externalTypes/requestPipeline'
 import { GraphQLContext, logGraphQLOperation } from '@makerxstudio/graphql-core'
+import type { Logger } from '@makerxstudio/node-common'
 
-export interface GraphQLRequestInfo<TContext extends GraphQLContext> {
+export interface GraphQLRequestInfo<TContext extends GraphQLContext<any, any, any>> {
   readonly requestContext: GraphQLRequestContextWillSendResponse<TContext>
   readonly isSubsequentPayload: boolean
   readonly formattedErrors?: ReadonlyArray<GraphQLFormattedError>
 }
 
-export interface LoggingPluginOptions<TContext extends GraphQLContext> {
+export interface LoggingPluginOptions<TContext extends GraphQLContext<any, any, any>> {
   shouldIgnore?: (request: GraphQLRequestInfo<TContext>) => boolean
 }
 
-export function createLoggingPlugin<TContext extends GraphQLContext>(
+export function createLoggingPlugin<TContext extends GraphQLContext<TLogger, any, any>, TLogger extends Logger = Logger>(
   options: LoggingPluginOptions<TContext>
 ): ApolloServerPlugin<TContext> {
   return {
