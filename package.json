@@ -1,6 +1,6 @@
 {
   "name": "@makerxstudio/graphql-apollo-server",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": false,
   "description": "A set of MakerX plugins for Apollo Server",
   "author": "MakerX",
@@ -23,7 +23,7 @@
     "audit": "npm audit"
   },
   "dependencies": {
-    "@makerxstudio/graphql-core": "0.4.1",
+    "@makerxstudio/graphql-core": "^0.5.0",
     "@makerxstudio/node-common": "0.1.0"
   },
   "peerDependencies": {
