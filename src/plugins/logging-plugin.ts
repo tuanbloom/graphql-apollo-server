@@ -1,8 +1,8 @@
 import { GraphQLFormattedError } from 'graphql'
 import { ApolloServerPlugin, GraphQLRequestContextWillSendResponse, GraphQLRequestListener } from '@apollo/server'
 import { GraphQLRequestContextWillSendSubsequentPayload } from '@apollo/server/dist/esm/externalTypes/requestPipeline'
-import { GraphQLContext, logGraphQLOperation } from '@makerx/graphql-core'
-import type { Logger } from '@makerx/node-common'
+import { GraphQLContext, logGraphQLOperation } from '@tuanbloom/graphql-core'
+import type { Logger } from '@tuanbloom/node-common'
 
 export interface GraphQLRequestInfo<TContext extends GraphQLContext<any, any, any>> {
   readonly requestContext: GraphQLRequestContextWillSendResponse<TContext>
